@@ -92,13 +92,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     if (listAddresses != null && listAddresses.size() > 0) {
                         String address = "";
 
-                        if (listAddresses.get(0).getAdminArea() != null) {
-                            address += listAddresses.get(0).getAdminArea() + " ";
-
-                        }
-
-                        if (listAddresses.get(0).getLocality() != null) {
-                            address += listAddresses.get(0).getLocality() + " ";
+                        if (listAddresses.get(0).getThoroughfare() != null) {
+                            address += listAddresses.get(0).getThoroughfare() + ", ";
 
                         }
 
@@ -107,12 +102,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         }
 
-                        if (listAddresses.get(0).getThoroughfare() != null) {
-                            address += listAddresses.get(0).getThoroughfare();
+                        if (listAddresses.get(0).getLocality() != null) {
+                            address += listAddresses.get(0).getLocality() + ", ";
 
                         }
 
-                        Toast.makeText(MapsActivity.this, address, Toast.LENGTH_SHORT).show();
+                        if (listAddresses.get(0).getAdminArea() != null) {
+
+                            String firstLetter = listAddresses.get(0).getAdminArea().toUpperCase().charAt(0)+"";
+                            String otherLetters = listAddresses.get(0).getAdminArea().substring(1);
+                            String adminArea = firstLetter+otherLetters;
+                            address += adminArea;
+
+                        }
+
+                        Toast.makeText(MapsActivity.this, address, Toast.LENGTH_LONG).show();
 
                     }
 
