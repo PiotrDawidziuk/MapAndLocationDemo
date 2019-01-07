@@ -102,10 +102,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         }
 
-                        if (listAddresses.get(0).getThoroughfare() != null) {
-                            address += listAddresses.get(0).getThoroughfare() + " ";
+                        if (listAddresses.get(0).getPostalCode() != null) {
+                            address += listAddresses.get(0).getPostalCode() + " ";
 
                         }
+
+                        if (listAddresses.get(0).getThoroughfare() != null) {
+                            address += listAddresses.get(0).getThoroughfare();
+
+                        }
+
+                        Toast.makeText(MapsActivity.this, address, Toast.LENGTH_SHORT).show();
 
                     }
 
